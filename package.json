@@ -1,0 +1,41 @@
+{
+  "name": "@explorables/explorable_template",
+  "title": "Explorable Template",
+  "version": "1.0.1",
+  "description": "This is a template for making a complexity explorable. The template can be used to create a new complexity explorable. This template implements the Vicsek Model.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dirkbrockmann/explorable_template.git"
+  },
+  "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
+  "main": "./dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production ",
+    "dev": "webpack serve --static dist/ --mode development",
+    "show": "http-server dist -o"
+  },
+  "keywords": [
+    "complexity",
+    "explorables",
+    "visualization"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^7.8.2",
+    "d3-widgets": "^1.0.16",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
+    "style-loader": "^3.3.1",
+    "tachyons": "^4.12.0",
+    "webpack": "^5.75.0",
+    "webpack-bundle-analyzer": "^4.7.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

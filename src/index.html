@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	</head>
+	<body>
+	<article class="avenir pa3 pa5-ns tj">
+	<h1 class="f2 fw3"><%= htmlWebpackPlugin.options.title %></h1>	
+	<p class="lh-copy"><%= htmlWebpackPlugin.options.description %></p>
+
+	<div id="<%= htmlWebpackPlugin.options.anchor %>">
+	</div>
+	</article>
+	</body>
+	<script type="text/javascript">
+		<%= htmlWebpackPlugin.options.library %>.load("<%= htmlWebpackPlugin.options.anchor %>");
+	</script>
+</html>

@@ -1,0 +1,13 @@
+@import '~tachyons/css/tachyons.min.css';
+
+.control-panel .border {
+	fill: none;
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.display-panel .border {
+	fill: none;
+	stroke: black;
+	stroke-width: 1px;
+}
