@@ -21,7 +21,7 @@ module.exports = {
     	  description: meta.description,
 		scriptLoading: 'blocking'
       }),
-	  new BundleAnalyzerPlugin()
+	  //new BundleAnalyzerPlugin()
     ],
     output: {
       path: path.resolve(__dirname, 'dist'),

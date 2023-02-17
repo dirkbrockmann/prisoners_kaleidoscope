@@ -1,8 +1,9 @@
 {
-  "name": "@explorables/explorable_template",
-  "title": "Explorable Template",
-  "version": "1.0.1",
-  "description": "This is a template for making a complexity explorable. The template can be used to create a new complexity explorable. This template implements the Vicsek Model.",
+  "name": "@explorables/prisoners_kaleidoscope",
+  "title": "The Prisoner's Kaleidoscope",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "The spatial prisoner's dilemma - Pattern formation in a game theoretic model on a lattice",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dirkbrockmann/explorable_template.git"
@@ -21,10 +22,10 @@
     "explorables",
     "visualization"
   ],
-  "license": "ISC",
   "dependencies": {
     "d3": "^7.8.2",
-    "d3-widgets": "^1.0.16",
+    "d3-widgets": "^1.0.22",
+    "lattices": "^1.0.14",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
