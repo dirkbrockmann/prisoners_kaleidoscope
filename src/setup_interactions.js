@@ -29,7 +29,7 @@ export default (display,controls,config) => {
 	ct.go.update(()=>startstop(display,config))
 	ct.setup.update(()=>initialize(display,config))
 	param.lattice_type.widget.update(()=>initialize(display,config))
-	param.all_parameters.widget.update(()=>reset_payoff(controls))
+//	param.all_parameters.widget.update(()=>reset_payoff(controls))
 	param.defector_concentration.widget.update_end(()=>initialize(display,config))
 	param.initial_condition.widget.update(()=>{
 		update_slider_visibility(controls)		

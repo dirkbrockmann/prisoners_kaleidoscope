@@ -11,8 +11,8 @@ const add_widget = (p,w) => each(p,(v,i) => v["widget"]=w[i]);
 
 
 
-const get_variables = (p) => pickBy(p, v =>  has(v, "range") && !has(v, "alt_range"))  
-const get_payoff = (p) => pickBy(p, v =>  has(v, "alt_range"))  
+const get_variables = (p) => pickBy(p, v =>  has(v, "range") && !has(v, "group"))  
+const get_payoff = (p) => pickBy(p, v =>  v.group == "payoff" )  
 const get_booleans = (p) => pickBy(p, v =>  isBoolean(v.default))  
 const get_choices = (p) => pickBy(p, v =>  has(v, "choices"))  
 
