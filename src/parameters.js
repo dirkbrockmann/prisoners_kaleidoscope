@@ -5,30 +5,26 @@
 
 export default {
 		N:50,
-		boundary:"periodic",
+		boundary:"dirichlet",
     	"T": {
 			range:[1.5,2.5],
 			default:1.85,
-			alt_range:[0,3],
-			alt_default:1.85
+			group:"payoff"
 		},
     	"R": {
 			range:[0.5,1],
 			default:1,
-			alt_range:[0,3],
-			alt_default:1.2
+			group:"payoff"
 		},
     	"S": {
-			range:[0,1],
+			range:[0,.1],
 			default:0,
-			alt_range:[0,3],
-			alt_default:0.15			
+			group:"payoff"
 		},
     	"P": {
-			range:[0,1],
-			default:0,
-			alt_range:[0,3],
-			alt_default:0.25			
+			range:[0,.2],
+			default:0.05,
+			group:"payoff"
 		},
     	defector_concentration: {
 			range:[0,1],
@@ -44,9 +40,9 @@ export default {
 		},
 		show_transition_states: {
 			default: false
-		},
-		all_parameters: {
-		default: false
 		}
+		// all_parameters: {
+		// default: false
+		// }
 }
 

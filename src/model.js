@@ -16,7 +16,6 @@ const initialize = () => {
 	const s = lattices[param.lattice_type.widget.value()==1?"hex":"square"](param.N)
 		.boundary(param.boundary)
 	
-	console.log(s.boundary())
 	agents = s.nodes;
 	
 	if (param.initial_condition.widget.value()==0) {
@@ -50,19 +49,20 @@ const go  = () => {
 		const pd = T*nC+P*nD;
 		a.score = a.state == "D" ? pd : pc;
 		a.score += 0.001*Math.random();
+		a.previous_state=a.state;
 	})
 
 	agents.forEach(a=>{
 		const myscore = a.score;
 		const winning_neighbor = maxBy(a.neighbors,n=>n.score);
 		const wn_score = winning_neighbor.score;
-		a.next_state = wn_score >= myscore ? winning_neighbor.state : a.state;
+		a.state = wn_score >= myscore ? winning_neighbor.previous_state : a.previous_state;
 	})
 
-	agents.forEach(a=>{
-		a.previous_state = a.state;
-		a.state = a.next_state;
-	})
+	// agentsx.forEach(a=>{
+	// 	a.previous_state = a.state;
+	// 	a.state = a.next_state;
+	// })
 }
 
 

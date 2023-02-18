@@ -41,12 +41,15 @@ const payoff_sliders = map(po,
 		v => widgets.slider()
 					.id(v.id)
 					.label(cfg.widgets.payoff_slider_labels[v.id])
-					.range(parameters.all_parameters.widget.value() ? v.alt_range : v.range)
-					.value(parameters.all_parameters.widget.value() ? v.alt_default : v.default)
+//					.range(parameters.all_parameters.widget.value() ? v.alt_range : v.range)
+//					.value(parameters.all_parameters.widget.value() ? v.alt_default : v.default)
+					.range(v.range)
+					.value(v.default)
 					.girth(cfg.widgets.payoff_slider_girth)	
 					.knob(cfg.widgets.payoff_slider_knob)
 					.size(cfg.widgets.payoff_slider_size)
-					.show(parameters.all_parameters.widget.value())					
+//					.show(parameters.all_parameters.widget.value())
+					.show(true)
 		);
 
 const sliders = map(va,
@@ -93,8 +96,8 @@ export default (controls,grid)=>{
 	const sl_pos2=grid.position(cfg.widgets.payoff_slider_anchor.x+cfg.widgets.payoff_slider_hgap,range(2)
 			.map(x=>(cfg.widgets.payoff_slider_anchor.y+cfg.widgets.payoff_slider_gap*x)));
 
-	const tg_pos=grid.position(cfg.widgets.toggle_anchor.x,range(toggles.length)
-			.map(x=>(cfg.widgets.toggle_anchor.y+cfg.widgets.toggle_gap*x)));
+
+	const tg_pos=grid.position(cfg.widgets.toggle_anchor.x,cfg.widgets.toggle_anchor.y);		
 
 	const latt_pos=grid.position(cfg.widgets.lattice_anchor.x,cfg.widgets.lattice_anchor.y);		
 	const ic_pos=grid.position(cfg.widgets.ic_anchor.x,cfg.widgets.ic_anchor.y);		
@@ -111,7 +114,7 @@ export default (controls,grid)=>{
 			}
 	});
 	
-	toggles.forEach((tg,i) => tg.position(tg_pos[i]).labelposition(cfg.widgets.toggle_label_pos));
+	toggles[0].position(tg_pos).labelposition(cfg.widgets.toggle_label_pos)
 
 
 	radios[0].position(latt_pos)
