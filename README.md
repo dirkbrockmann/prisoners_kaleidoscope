@@ -1,118 +1,60 @@
-# Explorable Template
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
-This is a template repository for the development of [Complexity Explorables](www.complexity-explorables.org). The template can be used to create a new repository with all the files. Most of the files have to be adapted to create a new model (explorable), but the overall structure and configuration can help accelerate the making of a new explorable.
+# The Prisoner's Kaleidoscope
 
-The template can be built and run (see below) and illustrates the [Viczek-Model](https://en.wikipedia.org/wiki/Vicsek_model) as an example complexity explorable.
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
-## Creating a new repository from this template
+This explorable illustrates the dynamics of the Prisoner's Dilemma, a famous game theoretic model. In the prisoner's dilemma players can chose to cooperate of defect. Depending on the choice the received payoffs and adopt their strategy. This model is a spatial variant of the model, that exhibits spatio-temporal chaos and beautiful patterns
 
-Click on  **Use this template** to create a new repository.
+The explorable is part of the [**Complexity Exporables Collection**](https://www.complexity-explorables.org). For more information about the system and its behavior consult the explorable
+> [**"The Prisoner's Kaleidoscope" - The spatial prisoner's dilemma**](https://www.complexity-explorables.org/explorables/prisoners-kaleidoscope/)
 
-Alternatively, use `gh` (you need to install `gh` first):
+## Installation & Use
 
-```shell
-gh repo create my-explorable -p dirkbrockmann/explorable_template --private
-gh repo clone my-explorable
-```
-Enter directory, install dependencies, build and run:
-
-```shell
-cd my-explorable
-npm install
-npm run build
-npm run show
-```
-## Files in `dist`:
-
-The build command generates two files in the `dist` directory:
-1. ìndex.html
-2. index.js
-
-`index.html` loads the `index.js` bundle and loads the explorable. This is what the key part of `index.html`look like.
+Out of the box you can use the explorable in a basic `index.html` file like this
 
 ```html
+<!doctype html>
 <html>
-    <head>
-        <script src="index.js"></script>
-    </head>
-    <body>
-        <div id="my-explorable_container"></div>
-    </body>
-    <script>my-explorable.load("my-explorable_container");</script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<script src="https://cdn.jsdelivr.net/npm/@explorables/prisoners_kaleidoscope"></script>
+	</head>
+	<body class="avenir pa3 pa5-ns tj">
+	    <div id="explorable_container"></div>
+	</body>
+	<script type="text/javascript">
+		prisoners_kaleidoscope.load("explorable_container")
+	</script>
 </html>
+```
+The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `prisoners_kaleidoscope.load()` gets executed at the bottom. The `load` function needs the `<div>` container `id` as an argument.
+
+## Installing the whole package locally
+
+Clone repository:
+
+```shell
+git clone https://github.com/dirkbrockmann/prisoners_kaleidoscope.git
 ```
 
 
-## Files in `src`:
+Go to the directory, install, build and show using `npm`:
 
-In order to make a new explorable you need to adapt the files in the `src`-directory. Here's brief descriptions of what they do and how they are connected:
+1. `cd prisoners_kaleidoscope`
+2. `npm install`
+3. `npm run build`
+4. `npm run show`
 
-### `index.js`:
+--- 
 
-This is the main entry file. It needs little modification. Everything is set up in this file.
+## License
 
-### `config.js`: 
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
 
-Configuration of simulation and layout. This is where all parameters should go that determine the look and feel of widgets, positioning and simulation parameters like the iteration speed. It should not contain model specific parameters.
-
-### `container_config.js`: 
-
-Configuration of the container elements (`display` and `controls`) that hold the explorable. By default this file is read by the `load()` function of `index.js`.
-
-### `setup_container.js`:
-
-This is used by `index.js` to setup the container elements with the parameters provided in `container_config.js`. This files does not be adapted much to a specific explorable.
-
-### `controls.js`:
-Sets up all the widgets objects and html elements that are bound to them. This needs to be adapted to the explorable that is to be made. However, it is coded such that little adaptation is needed.
-
-### `model.js`:
-
-This contains all the stuff the model does without the visualization part. E.g. if your explorable is a dynamical system, this is where you define the rules that change the systems state. The quantities of the models that are required for visualization should be exported (and imported by `viz.js`).
-
-### `parameters.js`:
-
-These are the parameters of your model, containing fixed parameters, variables (usually linked to sliders), choices (usually linked to radiobox elements in the controls) and booleans (usually linked to toggles).
-
-### `reset_parameters.js`:
-
-This contains code to reset parameters to their default value. It's quite generic but needs to be adapted a bit to the needs of a given explorable. It is usually linked to a reset button in the control pane.
-
-### `viz.js`:
-
-This is the visualization part. It imports information provided by `model.js` and uses it for drawing stuff in the `display` pane.
-
-### `setup_interactions.js`:
-
-This is a code chunk that connects
-1. the model
-2. the controls
-3. the visualization
-
-which is why it depends on many other files. It needs to be adapted to the specific explorable.
-
-### `simulation.js`:
-
-This is a very stable file, it sets up the generic things that happen when buttons are pressed, like 
-1. running the simulation
-2. initializing the simulation
-3. updating the system
-
-This file usually needs no modifications.
-
-### `utils.js`:
-
-Helper functions.
-
-### `styles.css`:
-
-This are styles that are used for the explorable and get packaged into the library. 
-
-
-
-
-
-
-
-
+[![CC BY 4.0][cc-by-image]][cc-by]
 

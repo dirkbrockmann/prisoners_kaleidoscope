@@ -1,5 +1,5 @@
 import * as widgets from "d3-widgets"
-import {range,map,concat} from "lodash-es"
+import {range,map,concat,toPairs} from "lodash-es"
 
 import cfg from "./config.js"
 import parameters from "./parameters.js"
@@ -89,7 +89,54 @@ const buttons = [go,setup,reset];
 
 
 export default (controls,grid)=>{
+	
+	
+	var legend1 = ["CC","DD","CD","DC"].map((s,i)=>{
+		const p = grid.position(cfg.widgets.legend_anchor.x+i*cfg.widgets.legend_gap,cfg.widgets.legend_anchor.y)
 
+		return {
+			s:cfg.simulation.legend[s],
+			c:cfg.simulation.colors[s],
+			x:p.x,
+			y:p.y,
+			vgap:grid.position(0,cfg.widgets.legend_vgap)
+		}
+	})
+	
+	var legend2 = ["C","D"].map((s,i)=>{
+		const p = grid.position(cfg.widgets.legend_anchor.x+(i+2)*cfg.widgets.legend_gap,cfg.widgets.legend_anchor.y)
+
+		return {
+			s:cfg.simulation.legend[s],
+			c:cfg.simulation.colors[s],
+			x:p.x,
+			y:p.y,
+			vgap:grid.position(0,cfg.widgets.legend_vgap)
+		}
+	})
+
+	const leg1 = controls.selectAll("#legend1").data(legend1).enter().append("g")
+		.attr("transform",d=>"translate("+d.x+","+d.y+")").attr("id","legend1")
+		.style("opacity",parameters.show_transition_states.widget.value()?1:0)
+		
+	const leg2 = controls.selectAll("#legend2").data(legend2).enter().append("g")
+		.attr("transform",d=>"translate("+d.x+","+d.y+")").attr("id","legend2")
+		.style("opacity",parameters.show_transition_states.widget.value()?0:1)
+	
+	leg2.append("text").text(d=>d.s).style("text-anchor","middle")
+	leg2.append("circle").style("fill",d=>d.c)
+		.attr("r",cfg.widgets.legend_size)
+		.style("stroke-width","1px")
+		.style("stroke","black")
+		.attr("transform",d=>"translate(0,"+d.vgap.y+")")
+		
+	leg1.append("text").text(d=>d.s).style("text-anchor","middle")
+	leg1.append("circle").style("fill",d=>d.c)
+		.attr("r",cfg.widgets.legend_size)
+		.style("stroke-width","1px")
+		.style("stroke","black")
+		.attr("transform",d=>"translate(0,"+d.vgap.y+")")
+	
 	const sl_pos1=grid.position(cfg.widgets.payoff_slider_anchor.x,range(2)
 			.map(x=>(cfg.widgets.payoff_slider_anchor.y+cfg.widgets.payoff_slider_gap*x)));
 

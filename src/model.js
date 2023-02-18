@@ -2,18 +2,15 @@ import param from "./parameters.js"
 import {each,maxBy,shuffle} from "lodash-es"
 import * as lattices from "lattices"
 
-const L = param.L;
-const dt = param.dt;
 
 var agents = [];
-
-
 
 const initialize = () => {
 
 	// set/reset timer
 	param.timer={}; param.tick=0;
-	const s = lattices[param.lattice_type.widget.value()==1?"hex":"square"](param.N)
+	const N = param.lattice_type.widget.value()==1 ? param.N.hex : param.N.square
+	const s = lattices[param.lattice_type.widget.value()==1?"hex":"square"](N)
 		.boundary(param.boundary)
 	
 	agents = s.nodes;
@@ -26,6 +23,7 @@ const initialize = () => {
 	} else {
 		agents.forEach(a=>a.state="C")
 		agents.filter(a=>{return a.x==0 && a.y==0}).forEach(a=>{a.state="D"})
+		agents.forEach(a=>{a.previous_state=a.state})
 	}	
 
 	
@@ -59,10 +57,6 @@ const go  = () => {
 		a.state = wn_score >= myscore ? winning_neighbor.previous_state : a.previous_state;
 	})
 
-	// agentsx.forEach(a=>{
-	// 	a.previous_state = a.state;
-	// 	a.state = a.next_state;
-	// })
 }
 
 

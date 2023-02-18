@@ -28,8 +28,9 @@ export default (display,controls,config) => {
 	ct.reset.update(()=>{resetparameters(controls); initialize(display,config) })	
 	ct.go.update(()=>startstop(display,config))
 	ct.setup.update(()=>initialize(display,config))
-	param.lattice_type.widget.update(()=>initialize(display,config))
-//	param.all_parameters.widget.update(()=>reset_payoff(controls))
+	param.lattice_type.widget.update(()=>{
+		initialize(display,config)}
+	)
 	param.defector_concentration.widget.update_end(()=>initialize(display,config))
 	param.initial_condition.widget.update(()=>{
 		update_slider_visibility(controls)		
@@ -37,6 +38,11 @@ export default (display,controls,config) => {
 	})
 	param.show_transition_states.widget.update(()=>{
 		update(display,config)
+	controls.selectAll("#legend1").transition()
+		.style("opacity",param.show_transition_states.widget.value()?1:0)
+		
+	controls.selectAll("#legend2").transition()
+		.style("opacity",param.show_transition_states.widget.value()?0:1)
 	})
 }
 

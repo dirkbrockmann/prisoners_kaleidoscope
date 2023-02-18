@@ -28,11 +28,29 @@ export default {
 		radio_label_position:"right",
 		radio_shape:"rect",
 		lattice_anchor:{x:1,y:7},
-		ic_anchor:{x:6.5,y:7}
+		ic_anchor:{x:6.5,y:7},
+		legend_anchor:{x:5.5,y:1},
+		legend_gap:1.75,
+		legend_size:10,
+		legend_vgap:0.5
 	},
 	simulation: {
 		delay:0,
-		color_scheme:"mine2"
-		
+		colors:{
+			D:"black",
+			DD:"black",
+			C:"teal",
+			CC:"teal",
+			CD:"aqua",
+			DC:"white"
+		},
+		legend:{
+			D:"D",
+			C:"C",
+			DD:"D\u2192D",
+			CC:"C\u2192C",
+			CD:"D\u2192C",
+			DC:"C\u2192D"
+		}		
 	}
 }

@@ -4,7 +4,7 @@
 
 
 export default {
-		N:50,
+		N:{hex:50,square:100},
 		boundary:"dirichlet",
     	"T": {
 			range:[1.5,2.5],
@@ -32,14 +32,14 @@ export default {
 		},
 		initial_condition : {
 			choices:["random","defector seed"],
-		default:0
+		default:1
 		},
 		lattice_type : {
 			choices:["square","hexagonal"],
 		default:0
 		},
 		show_transition_states: {
-			default: false
+		default: true
 		}
 		// all_parameters: {
 		// default: false
