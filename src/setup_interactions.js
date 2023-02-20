@@ -13,6 +13,7 @@ const startstop = (display,config) => {
 
 }
 
+
 function update_slider_visibility(controls){
 	if(param.initial_condition.widget.value() == 1) {
 		controls.select("#slider_"+param.defector_concentration.widget.id()).transition().style("opacity",0)
@@ -23,6 +24,7 @@ function update_slider_visibility(controls){
 	}
 }
 
+
 export default (display,controls,config) => {
 	
 	ct.reset.update(()=>{resetparameters(controls); initialize(display,config) })	
@@ -31,7 +33,8 @@ export default (display,controls,config) => {
 	param.lattice_type.widget.update(()=>{
 		initialize(display,config)}
 	)
-	param.defector_concentration.widget.update_end(()=>initialize(display,config))
+	param.defector_concentration.widget.update(()=>initialize(display,config))
+	
 	param.initial_condition.widget.update(()=>{
 		update_slider_visibility(controls)		
 		initialize(display,config)

@@ -5,7 +5,7 @@
 
 export default {
 		N:{hex:50,square:100},
-		boundary:"dirichlet",
+		boundary:"periodic",
     	"T": {
 			range:[1.5,2.5],
 			default:1.85,

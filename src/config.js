@@ -8,10 +8,10 @@ export default {
 		payoff_slider_knob: 14,
 		payoff_slider_anchor: {x:0.5,y:10},
 		payoff_slider_labels: {
-			T:"D's benefit from C",
-			R:"C's benefit from C",
-			S:"C's benefit from D",
-			P:"D's benefit from D"
+			T:"T",
+			R:"R",
+			S:"S",
+			P:"P"
 		},
 		slider_size: 180,
 		slider_girth: 12,
@@ -20,9 +20,9 @@ export default {
 		toggle_anchor: {x:7,y:3.5},
 		toggle_label_pos:"right",
 		playbutton_size: 120,
-		playbutton_anchor:{x:3,y:2},
-		backbutton_anchor:{x:4,y:5},
-		resetbutton_anchor:{x:2,y:5},
+		playbutton_anchor:{x:2.5,y:2},
+		backbutton_anchor:{x:3.5,y:5},
+		resetbutton_anchor:{x:1.5,y:5},
 		radio_size:40,
 		radio_orientation:"vertical",
 		radio_label_position:"right",

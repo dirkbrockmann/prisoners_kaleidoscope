@@ -80,6 +80,8 @@ const initialize = (display,config) => {
 
 	go(display,config)
 	
+	
+	
 };
 
 

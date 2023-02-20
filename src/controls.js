@@ -184,6 +184,14 @@ export default (controls,grid)=>{
 	controls.selectAll(".toggle").data(toggles).enter().append(widgets.widget);
 	controls.selectAll(".button").data(buttons).enter().append(widgets.widget);
 	controls.selectAll(".radio").data(radios).enter().append(widgets.widget)
+	
+	if(parameters.initial_condition.widget.value() == 1) {
+		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition().style("opacity",0)
+		controls.select("#slider_"+parameters.defector_concentration.widget.id()).select(" .track-overlay").style("pointer-events","none")
+	} else {
+		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition().style("opacity",1)
+		controls.select("#slider_"+parameters.defector_concentration.widget.id()).select(" .track-overlay").style("pointer-events","all")
+	}
 
 }
 

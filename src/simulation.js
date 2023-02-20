@@ -1,5 +1,8 @@
 import {initialize as model_init, update as model_update, go as model_go} from "./model.js"
 import {initialize as visual_init, update as visual_update, go as visual_go} from "./viz.js"
+import param from "./parameters.js"
+import {select} from "d3"
+
 
 function iterate (display,config) {
 	model_go();
