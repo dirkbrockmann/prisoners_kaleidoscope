@@ -1,7 +1,7 @@
 {
   "name": "@explorables/prisoners_kaleidoscope",
   "title": "The Prisoner's Kaleidoscope",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "CC-BY-4.0",
   "description": "The spatial prisoner's dilemma - Pattern formation in a game theoretic model on a lattice",
   "repository": {
