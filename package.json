@@ -6,7 +6,7 @@
   "description": "The spatial prisoner's dilemma - Pattern formation in a game theoretic model on a lattice",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dirkbrockmann/explorable_template.git"
+    "url": "git+https://github.com/dirkbrockmann/prisoners_kaleidoscope.git"
   },
   "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
   "main": "./dist/index.js",
