@@ -25,9 +25,6 @@ const bo = toArray(booleans);
 const ch = toArray(choices);
 const po = toArray(payoff);
 
-
-console.log(po)
-
 const toggles = map(bo, 
 		v => widgets.toggle()
 					.id(v.id).

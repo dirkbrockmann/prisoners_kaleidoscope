@@ -1,9 +1,0 @@
-@import '~tachyons/css/tachyons.min.css';
-
-.control-panel > .border {
-	border:1px black solid;
-}
-
-.display-panel > .border {
-	border:1px black solid;
-}

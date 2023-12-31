@@ -1,8 +1,9 @@
 export default {
+	id:"prisoners_kaleidoscope",
 	display_type:"canvas", // {svg{canvas}}
 	debug:false, 
-	controls_border:false,
-	display_border:false,
+	controls_border:"",
+	display_border:"",
 	debug_lattice:"debug-grid-16",
 	controls_grid:{nx:12,ny:12},
 	display_size: {width:5*201,height:5*201},
