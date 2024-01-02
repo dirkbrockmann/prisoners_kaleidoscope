@@ -186,6 +186,9 @@ export default (controls,grid)=>{
 		controls.select("#slider_"+parameters.defector_concentration.widget.id())
 			.select("."+widgets.styles.track_overlay).style("pointer-events","none")
 		
+		controls.select("#slider_"+parameters.defector_concentration.widget.id())
+			.select("."+widgets.styles.label).style("pointer-events","none")
+		
 		
 	} else {
 		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition()
@@ -196,6 +199,9 @@ export default (controls,grid)=>{
 		
 		controls.select("#slider_"+parameters.defector_concentration.widget.id())
 			.select("."+widgets.styles.track_overlay).style("pointer-events","all")
+		
+		controls.select("#slider_"+parameters.defector_concentration.widget.id())
+			.select("."+widgets.styles.label).style("pointer-events","none")
 		
 	}
 
