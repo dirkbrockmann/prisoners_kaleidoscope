@@ -2,7 +2,7 @@
   "name": "@explorables/prisoners_kaleidoscope",
   "title": "The Prisoner's Kaleidoscope",
   "subtitle": "The prisoner's dilemma game on a lattice",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "CC-BY-4.0",
   "description": "This explorable illustrates a famous game theoretic model, known as the prisoner's dilemma. On a lattice it can yield beautiful patterns and chaos.",
   "repository": {
