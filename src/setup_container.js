@@ -41,7 +41,7 @@ export default (container_id,config)=>{
 		}
 
 	if (config.debug){		
-		controls.selectAll(".grid").data(grid.points).enter().append("circle").attr("r",2)
+		controls.selectAll(null).data(grid.points).enter().append("circle").attr("r",2)
 			.attr("transform",d=>"translate("+d.x+","+d.y+")")
 			.style("fill","black")	
 	}

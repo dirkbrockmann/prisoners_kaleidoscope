@@ -1,0 +1,13 @@
+.legend {
+	
+}
+
+.label {
+	text-anchor:middle;
+	font-size:16px;
+}
+
+.symbol {
+	stroke-width:1px;
+	stroke:black;
+}

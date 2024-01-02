@@ -16,7 +16,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production ",
     "dev": "webpack serve --static dist/ --mode development",
-    "show": "http-server dist -o"
+    "show": "http-server dist -o",
+    "pap": "git add . ; git commit -m \"$npm_package_version\"; git push; npm version patch; npm publish "
   },
   "keywords": [
     "complexity",

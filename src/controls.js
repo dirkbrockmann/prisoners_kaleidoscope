@@ -5,9 +5,8 @@ import cfg from "./config.js"
 import parameters from "./parameters.js"
 
 import {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices,get_payoff} from "./utils.js"
+import styles from "./styles.module.css"
 
-
-// write a function that makes a legend in the specified colors
 
 const variables = get_variables(parameters);
 const booleans = get_booleans(parameters);
@@ -38,14 +37,11 @@ const payoff_sliders = map(po,
 		v => widgets.slider()
 					.id(v.id)
 					.label(cfg.widgets.payoff_slider_labels[v.id])
-//					.range(parameters.all_parameters.widget.value() ? v.alt_range : v.range)
-//					.value(parameters.all_parameters.widget.value() ? v.alt_default : v.default)
 					.range(v.range)
 					.value(v.default)
 					.girth(cfg.widgets.payoff_slider_girth)	
 					.knob(cfg.widgets.payoff_slider_knob)
 					.size(cfg.widgets.payoff_slider_size)
-//					.show(parameters.all_parameters.widget.value())
 					.show(true)
 		);
 
@@ -60,8 +56,6 @@ const sliders = map(va,
 					.size(cfg.widgets.slider_size)
 		);
 
-
-
 const radios = map(ch, 
 		v => widgets.radio()
 					.choices(v.choices)
@@ -70,8 +64,6 @@ const radios = map(ch,
 					.orientation(cfg.widgets.radio_orientation)
 					.labelposition(cfg.widgets.radio_label_position)
 		);
-
-
 
 add_widget(po,payoff_sliders);
 add_widget(va,sliders);
@@ -115,24 +107,26 @@ export default (controls,grid)=>{
 	const leg1 = controls.selectAll("#legend1").data(legend1).enter().append("g")
 		.attr("transform",d=>"translate("+d.x+","+d.y+")").attr("id","legend1")
 		.style("opacity",parameters.show_transition_states.widget.value()?1:0)
+		.attr("class",styles.legend)
 		
 	const leg2 = controls.selectAll("#legend2").data(legend2).enter().append("g")
 		.attr("transform",d=>"translate("+d.x+","+d.y+")").attr("id","legend2")
 		.style("opacity",parameters.show_transition_states.widget.value()?0:1)
+		.attr("class",styles.legend)
+		
+	leg2.append("text").text(d=>d.s).attr("class",styles.label)
 	
-	leg2.append("text").text(d=>d.s).style("text-anchor","middle")
 	leg2.append("circle").style("fill",d=>d.c)
 		.attr("r",cfg.widgets.legend_size)
-		.style("stroke-width","1px")
-		.style("stroke","black")
 		.attr("transform",d=>"translate(0,"+d.vgap.y+")")
+		.attr("class",styles.symbol)
 		
-	leg1.append("text").text(d=>d.s).style("text-anchor","middle")
+	leg1.append("text").text(d=>d.s).attr("class",styles.label)
+	
 	leg1.append("circle").style("fill",d=>d.c)
 		.attr("r",cfg.widgets.legend_size)
-		.style("stroke-width","1px")
-		.style("stroke","black")
 		.attr("transform",d=>"translate(0,"+d.vgap.y+")")
+		.attr("class",styles.symbol)
 	
 	const sl_pos1=grid.position(cfg.widgets.payoff_slider_anchor.x,range(2)
 			.map(x=>(cfg.widgets.payoff_slider_anchor.y+cfg.widgets.payoff_slider_gap*x)));
@@ -177,17 +171,32 @@ export default (controls,grid)=>{
 	setup.position(grid.position(cfg.widgets.resetbutton_anchor.x,cfg.widgets.resetbutton_anchor.y));
 	
 
-	controls.selectAll(".slider").data(concat(sliders,payoff_sliders)).enter().append(widgets.widget);
-	controls.selectAll(".toggle").data(toggles).enter().append(widgets.widget);
-	controls.selectAll(".button").data(buttons).enter().append(widgets.widget);
-	controls.selectAll(".radio").data(radios).enter().append(widgets.widget)
+	controls.selectAll(null).data(concat(sliders,payoff_sliders)).enter().append(widgets.widget);
+	controls.selectAll(null).data(toggles).enter().append(widgets.widget);
+	controls.selectAll(null).data(buttons).enter().append(widgets.widget);
+	controls.selectAll(null).data(radios).enter().append(widgets.widget)
 	
 	if(parameters.initial_condition.widget.value() == 1) {
-		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition().style("opacity",0)
-		controls.select("#slider_"+parameters.defector_concentration.widget.id()).select(" .track-overlay").style("pointer-events","none")
+		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition()
+			.style("opacity",0)
+
+		controls.select("#slider_"+parameters.defector_concentration.widget.id())
+			.select("."+widgets.styles.handle).style("pointer-events","none")
+		
+		controls.select("#slider_"+parameters.defector_concentration.widget.id())
+			.select("."+widgets.styles.track_overlay).style("pointer-events","none")
+		
+		
 	} else {
-		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition().style("opacity",1)
-		controls.select("#slider_"+parameters.defector_concentration.widget.id()).select(" .track-overlay").style("pointer-events","all")
+		controls.select("#slider_"+parameters.defector_concentration.widget.id()).transition()
+			.style("opacity",1)
+
+		controls.select("#slider_"+parameters.defector_concentration.widget.id())
+			.select("."+widgets.styles.handle).style("pointer-events","all")
+		
+		controls.select("#slider_"+parameters.defector_concentration.widget.id())
+			.select("."+widgets.styles.track_overlay).style("pointer-events","all")
+		
 	}
 
 }

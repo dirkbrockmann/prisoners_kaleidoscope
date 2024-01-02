@@ -4,7 +4,7 @@ import cfg from "./config.js"
 import param from "./parameters.js"
 import resetparameters,{reset_payoff} from "./reset_parameters.js"
 import {iterate,initialize,update} from "./simulation.js"
-
+import * as widgets from "d3-widgets"
 
 var timer = {}
 
@@ -17,10 +17,29 @@ const startstop = (display,config) => {
 function update_slider_visibility(controls){
 	if(param.initial_condition.widget.value() == 1) {
 		controls.select("#slider_"+param.defector_concentration.widget.id()).transition().style("opacity",0)
-		controls.select("#slider_"+param.defector_concentration.widget.id()).select(" .track-overlay").style("pointer-events","none")
+		
+		controls.select("#slider_"+param.defector_concentration.widget.id())
+			.select("."+widgets.styles.handle).style("pointer-events","none")
+		
+		controls.select("#slider_"+param.defector_concentration.widget.id())
+			.select("."+widgets.styles.track_overlay).style("pointer-events","none")
+		
+		controls.select("#slider_"+param.defector_concentration.widget.id())
+			.select("."+widgets.styles.label).style("pointer-events","none")
+
+		
 	} else {
 		controls.select("#slider_"+param.defector_concentration.widget.id()).transition().style("opacity",1)
-		controls.select("#slider_"+param.defector_concentration.widget.id()).select(" .track-overlay").style("pointer-events","all")
+		
+		controls.select("#slider_"+param.defector_concentration.widget.id())
+			.select("."+widgets.styles.handle).style("pointer-events","all")
+		
+		controls.select("#slider_"+param.defector_concentration.widget.id())
+			.select("."+widgets.styles.track_overlay).style("pointer-events","all")
+		
+		controls.select("#slider_"+param.defector_concentration.widget.id())
+			.select("."+widgets.styles.label).style("pointer-events","none")
+		
 	}
 }
 
