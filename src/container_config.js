@@ -1,5 +1,4 @@
 export default {
-	id:"prisoners_kaleidoscope",
 	display_type:"canvas", // {svg{canvas}}
 	debug:false, 
 	controls_border:"",
@@ -8,8 +7,8 @@ export default {
 	controls_grid:{nx:12,ny:12},
 	display_size: {width:5*201,height:5*201},
 	controls_size: {width:480,height:480},
-	display_class:"fl w-100 w-50-ns pa2 ph3-ns",
-	controls_class:"fl w-100 w-50-ns pa2 ph3-ns",
-	container_class:"mw8 center cf"
+	display_class:" tw:p-1",
+	controls_class:"tw:p-1",
+	container_class:"tw:font-sans tw:grid tw:grid-cols-1 tw:sm:grid-cols-2 tw:sm:gap-4 tw:px-8 tw:sm:p-0"
 }
 

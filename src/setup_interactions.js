@@ -2,7 +2,7 @@ import {interval} from "d3"
 import * as ct from "./controls.js"
 import cfg from "./config.js"
 import param from "./parameters.js"
-import resetparameters,{reset_payoff} from "./reset_parameters.js"
+import resetparameters from "./reset_parameters.js"
 import {iterate,initialize,update} from "./simulation.js"
 import * as widgets from "d3-widgets"
 

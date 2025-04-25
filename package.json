@@ -2,22 +2,24 @@
   "name": "@explorables/prisoners_kaleidoscope",
   "title": "The Prisoner's Kaleidoscope",
   "subtitle": "The prisoner's dilemma game on a lattice",
-  "version": "1.1.3",
-  "license": "CC-BY-4.0",
   "description": "This explorable illustrates a famous game theoretic model, known as the prisoner's dilemma. On a lattice it can yield beautiful patterns and chaos.",
+  "author": "Dirk Brockmann (https://synosy.github.io)",
+  "version": "2.0.0",
+  "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dirkbrockmann/prisoners_kaleidoscope.git"
   },
-  "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
-  "main": "./dist/index.js",
-  "module": "src/index.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production ",
-    "dev": "webpack serve --static dist/ --mode development",
-    "show": "http-server dist -o",
-    "pap": "git add . ; git commit -m \"$npm_package_version\"; git push; npm version patch; npm publish "
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "release": "vite build && git add . && git commit -m 'prep release' && npm version patch -m \"release v%s\" && git push --follow-tags && npm publish --access public"
   },
   "keywords": [
     "complexity",
@@ -25,20 +27,15 @@
     "visualization"
   ],
   "dependencies": {
-    "d3": "^7.8.5",
-    "d3-widgets": "^1.2.4",
-    "lattices": "^1.0.16",
-    "lodash-es": "^4.17.21",
-    "tachyons": "^4.12.0"
+      "d3": "^7.8.5",
+      "d3-widgets": "^1.2.4",
+      "lattices": "^1.0.16",
+      "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "css-loader": "^6.8.1",
-    "html-webpack-plugin": "^5.6.0",
-    "http-server": "^14.1.1",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.89.0",
-    "webpack-bundle-analyzer": "^4.10.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "@tailwindcss/vite": "^4.1.4",
+    "tailwindcss": "^4.1.4",
+    "vite": "^6.3.2"
   }
 }

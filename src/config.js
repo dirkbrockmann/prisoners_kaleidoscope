@@ -35,7 +35,7 @@ export default {
 		legend_vgap:0.5
 	},
 	simulation: {
-		delay:0,
+		delay:10,
 		colors:{
 			D:"black",
 			DD:"black",
