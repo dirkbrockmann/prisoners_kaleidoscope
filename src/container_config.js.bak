@@ -7,8 +7,8 @@ export default {
 	controls_grid:{nx:12,ny:12},
 	display_size: {width:5*201,height:5*201},
 	controls_size: {width:480,height:480},
-	display_class:" tw:p-0",
-	controls_class:"tw:p-0",
-	container_class:"tw:font-sans tw:grid tw:grid-cols-1 tw:sm:grid-cols-2 tw:sm:gap-4 tw:px-1 tw:sm:p-0 tw:m-8"
+	display_class:" tw:p-1",
+	controls_class:"tw:p-1",
+	container_class:"tw:font-sans tw:grid tw:grid-cols-1 tw:sm:grid-cols-2 tw:sm:gap-4 tw:px-8 tw:sm:p-0"
 }
 
