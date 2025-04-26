@@ -4,7 +4,7 @@
   "subtitle": "The prisoner's dilemma game on a lattice",
   "description": "This explorable illustrates a famous game theoretic model, known as the prisoner's dilemma. On a lattice it can yield beautiful patterns and chaos.",
   "author": "Dirk Brockmann (https://synosy.github.io)",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
